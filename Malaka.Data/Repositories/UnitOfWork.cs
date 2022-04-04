@@ -2,7 +2,6 @@
 using Malaka.Data.IRepositories;
 using Microsoft.Extensions.Configuration;
 using Serilog;
-using Serilog.Core;
 using Serilog.Events;
 using System;
 using System.Threading.Tasks;
@@ -19,7 +18,8 @@ namespace Malaka.Data.Repositories
         /// Repositories
         /// </summary>
         public IStudentRepository Students { get; private set; }
-
+        public IInstructorRepository Instructors { get; private set; }
+        public ICourseRepository Courses { get; private set; }
         public UnitOfWork(MalakaDbContext context, IConfiguration config)
         {
             this.context = context;
@@ -35,6 +35,8 @@ namespace Malaka.Data.Repositories
 
             // Object initializing for repositories
             Students = new StudentRepository(context, logger);
+            Instructors = new InstructorRepository(context, logger);
+            Courses = new CourseRepository(context, logger);
         }
 
         public void Dispose()

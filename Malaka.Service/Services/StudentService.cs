@@ -53,7 +53,7 @@ namespace Malaka.Service.Services
             var result = await unitOfWork.Students.CreateAsync(mappedStudent);
 
             result.Image = "https://localhost:5001/Images/" + result.Image;
-            
+
             await unitOfWork.SaveChangesAsync();
 
             response.Data = result;

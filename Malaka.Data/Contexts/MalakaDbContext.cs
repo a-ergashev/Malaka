@@ -1,6 +1,6 @@
 ﻿using Malaka.Domain.Entities.Courses;
-using Malaka.Domain.Entities.Students;
 using Malaka.Domain.Entities.Instructors;
+using Malaka.Domain.Entities.Students;
 using Microsoft.EntityFrameworkCore;
 
 namespace Malaka.Data.Contexts

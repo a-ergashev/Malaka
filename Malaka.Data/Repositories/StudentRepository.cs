@@ -7,9 +7,7 @@ namespace Malaka.Data.Repositories
 {
     public class StudentRepository : GenericRepository<Student>, IStudentRepository
     {
-        public StudentRepository(MalakaDbContext dbContext, ILogger logger) 
-            : base(dbContext, logger)
-        {
-        }
+        public StudentRepository(MalakaDbContext dbContext, ILogger logger)
+            : base(dbContext, logger) { }
     }
 }

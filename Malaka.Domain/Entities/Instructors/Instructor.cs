@@ -1,27 +1,23 @@
 ﻿using Malaka.Domain.Commons;
-using Malaka.Domain.Entities.Instructors;
-using Malaka.Domain.Entities.Students;
+using Malaka.Domain.Entities.Courses;
 using Malaka.Domain.Enums;
-using Malaka.ViewModels.Courses;
+using Malaka.ViewModels.Instructors;
 using System;
 using System.Collections.Generic;
 
-namespace Malaka.Domain.Entities.Courses
+namespace Malaka.Domain.Entities.Instructors
 {
-    public class Course : IAuditable
+    public class Instructor : IAuditable
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public ushort Duration { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public Guid? UpdatedBy { get; set; }
         public ItemState State { get; set; }
 
-        public Instructor Instructor { get; set; }
-        public ICollection<Student> Students { get; set; }
-
+        public virtual ICollection<Course> Courses { get; set; }
         public void Update()
         {
             UpdatedAt = DateTime.Now;
@@ -39,13 +35,12 @@ namespace Malaka.Domain.Entities.Courses
             State = ItemState.Deleted;
         }
 
-        public static explicit operator Course(CourseForCreationDto courseDto)
+        public static explicit operator Instructor(InstructorForCreationDto instructorDto)
         {
-            return new Course()
+            return new Instructor()
             {
-                Name = courseDto.Name,
-                Price = courseDto.Price,
-                Duration = courseDto.Duration,
+                FirstName = instructorDto.FirstName,
+                LastName = instructorDto.LastName,
             };
         }
     }

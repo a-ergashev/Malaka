@@ -9,9 +9,9 @@ namespace Malaka.Api
     {
         public static void Main(string[] args)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "Logs\\log.txt";
+            //string path = AppDomain.CurrentDomain.BaseDirectory + "Logs\\log.txt";
             Log.Logger = new LoggerConfiguration().WriteTo.File(
-                    path: path,
+                    path: "Logs\\log.txt",
                     outputTemplate: "{Timestamp: yyyy-MM-dd HH:mm:ss } " +
                     "[{Level:u3}] {Message} {NewLine} {Exception}",
                     rollingInterval: RollingInterval.Day,

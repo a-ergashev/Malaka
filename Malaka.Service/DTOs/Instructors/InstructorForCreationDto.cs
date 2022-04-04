@@ -1,16 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Malaka.ViewModels.Students
+namespace Malaka.Service.DTOs.Instructors
 {
-    public class StudentForCreationDto
+    public class InstructorForCreationDto
     {
         [Required]
         public string FirstName { get; set; }
 
         [Required]
         public string LastName { get; set; }
-
-        [Required]
-        public string Phone { get; set; }
     }
 }

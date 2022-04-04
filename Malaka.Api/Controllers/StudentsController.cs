@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using shef = System.IO;
 using System.Threading.Tasks;
 
 namespace Malaka.Api.Controllers
@@ -26,7 +25,7 @@ namespace Malaka.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<BaseResponse<Student>>> Create([FromForm]StudentForCreationDto studentDto)
+        public async Task<ActionResult<BaseResponse<Student>>> Create([FromForm] StudentForCreationDto studentDto)
         {
             var result = await studentService.CreateAsync(studentDto);
 
@@ -42,7 +41,7 @@ namespace Malaka.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<BaseResponse<Student>>> Get([FromRoute]Guid id)
+        public async Task<ActionResult<BaseResponse<Student>>> Get([FromRoute] Guid id)
         {
             var result = await studentService.GetAsync(p => p.Id == id);
 
